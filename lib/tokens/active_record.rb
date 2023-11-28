@@ -7,11 +7,11 @@ module Tokens
     module Serializer
       class << self
         # Set the serializer adapter. Defaults to JSON.
-        attr_accessor :adapter
+        attr_accessor :adapter, coder: :JSON
       end
 
       require "json"
-      self.adapter = coder: :JSON
+      self.adapter = ::JSON
 
       def self.load(data)
         data ? JSON.load(data) : {}
