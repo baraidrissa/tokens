@@ -11,7 +11,7 @@ module Tokens
       end
 
       require "json"
-      self.adapter = ::JSON
+      self.adapter = coder: :JSON
 
       def self.load(data)
         data ? JSON.load(data) : {}
